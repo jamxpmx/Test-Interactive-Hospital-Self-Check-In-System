@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  font-family: 'DM Sans', 'Avenir Next', sans-serif;
+  font-family: 'Atkinson Hyperlegible', Arial, sans-serif;
   color: #19353b;
   background: #f2f6f5;
   font-synthesis: none;
@@ -25,7 +25,7 @@ button:disabled { cursor: not-allowed; opacity: .55; }
 .topbar { min-height: 82px; display: flex; align-items: center; gap: 22px; padding: 0 3.2%; background: #fff; border-bottom: 1px solid #e7eeec; z-index: 2; }
 .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; flex: 0 0 auto; }
 .brand-mark { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 12px; color: #fff; background: #176e78; }
-.brand-name { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 19px; }
+.brand-name { font-family: 'Atkinson Hyperlegible', Arial, sans-serif; font-weight: 700; font-size: 22px; }
 .brand-name span { color: var(--teal); }
 .study-label { display: flex; align-items: center; gap: 9px; color: #6c7f81; font-size: 12px; font-weight: 600; white-space: nowrap; }
 .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #db9860; box-shadow: 0 0 0 3px #fbf0e7; }
@@ -46,8 +46,8 @@ button:disabled { cursor: not-allowed; opacity: .55; }
 .orbit-one { width: 96px; height: 96px; top: 40%; right: 26px; }
 .orbit-two { width: 45px; height: 45px; top: calc(40% + 25px); right: 51px; border-color: #a8d5cc54; }
 .rail-content { position: relative; }
-.rail-eyebrow, .overline { display: inline-block; color: #9acbc3; font-size: 10px; line-height: 1.4; font-weight: 800; text-transform: uppercase; }
-.rail-content h1 { max-width: 250px; margin: 19px 0 13px; font-family: 'Manrope', sans-serif; font-size: 29px; line-height: 1.19; font-weight: 700; }
+.rail-eyebrow, .overline { display: inline-block; color: #9acbc3; font-size: 18px; line-height: 1.4; font-weight: 700; }
+.rail-content h1 { max-width: 250px; margin: 19px 0 13px; font-family: 'Atkinson Hyperlegible', Arial, sans-serif; font-size: 36px; line-height: 1.25; font-weight: 700; }
 .rail-content > p { max-width: 248px; margin: 0; color: #cee1df; font-size: 13px; line-height: 1.65; }
 .rail-note { display: flex; gap: 10px; align-items: flex-start; max-width: 250px; margin-top: 29px; padding-top: 19px; border-top: 1px solid #ffffff2e; color: #cee1df; font-size: 11px; line-height: 1.55; }
 .rail-note svg { flex: 0 0 auto; color: #add6ce; }
@@ -72,7 +72,7 @@ button:disabled { cursor: not-allowed; opacity: .55; }
 .breadcrumb-current { min-height: 44px; display: inline-flex; align-items: center; padding: 0 4px; color: #294a50; font-weight: 750; }
 .panel-heading { margin-bottom: 25px; }
 .panel-heading .overline, .workflow-page > .overline { color: #41828a; }
-.panel-heading h2, .workflow-page h2 { margin: 8px 0 6px; color: #19353b; font-family: 'Manrope', sans-serif; font-size: 26px; line-height: 1.25; font-weight: 750; }
+.panel-heading h2, .workflow-page h2 { margin: 8px 0 6px; color: #19353b; font-family: 'Atkinson Hyperlegible', Arial, sans-serif; font-size: 36px; line-height: 1.3; font-weight: 700; }
 .panel-heading p, .workflow-page > p { margin: 0; color: #63767a; font-size: 14px; line-height: 1.55; }
 .method-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .method-tabs button { min-height: 50px; display: flex; align-items: center; justify-content: center; gap: 9px; padding: 0 12px; border: 1px solid #cfdcda; border-radius: 6px; color: #456267; background: #fff; text-align: center; font-size: 15px; font-weight: 650; }
@@ -123,7 +123,7 @@ button:disabled { cursor: not-allowed; opacity: .55; }
 .appointment-top { display: flex; align-items: center; gap: 12px; padding-bottom: 17px; border-bottom: 1px solid #e5edeb; }
 .appointment-symbol { width: 38px; height: 38px; display: grid; place-items: center; flex: 0 0 auto; border-radius: 7px; color: #2e7b7d; background: #e7f2ef; }
 .card-label { color: #7b8b8d; font-size: 10px; font-weight: 700; text-transform: uppercase; }
-.appointment-top h3 { margin: 2px 0 0; color: #24464c; font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 750; }
+.appointment-top h3 { margin: 2px 0 0; color: #24464c; font-family: 'Atkinson Hyperlegible', Arial, sans-serif; font-size: 24px; font-weight: 700; }
 .appointment-time { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; color: #466d70; font-size: 12px; font-weight: 700; white-space: nowrap; }
 .appointment-details { display: grid; }
 .info-row { min-width: 0; display: flex; justify-content: space-between; gap: 18px; padding: 12px 0; border-bottom: 1px solid #e9efed; font-size: 12px; }
@@ -149,7 +149,7 @@ button:disabled { cursor: not-allowed; opacity: .55; }
 .success-prompt { max-width: 440px; margin: 0 auto 22px !important; }
 .directions-block { padding: 19px 20px 14px; border: 1px solid #dfe9e6; border-radius: 7px; background: #fbfdfc; text-align: left; }
 .directions-heading { display: flex; align-items: center; gap: 9px; padding-bottom: 14px; border-bottom: 1px solid #e5edeb; color: #32777a; }
-.directions-heading h3 { margin: 0; color: #284a4f; font-family: 'Manrope', sans-serif; font-size: 14px; }
+.directions-heading h3 { margin: 0; color: #284a4f; font-family: 'Atkinson Hyperlegible', Arial, sans-serif; font-size: 24px; }
 .route-steps { position: relative; display: grid; gap: 2px; padding: 14px 0 8px; }
 .route-line { position: absolute; top: 31px; bottom: 27px; left: 16px; width: 1px; background: #bfd8d2; }
 .route-step { position: relative; display: flex; align-items: center; gap: 12px; min-height: 48px; }
@@ -169,7 +169,7 @@ button:disabled { cursor: not-allowed; opacity: .55; }
 .modal-dialog { width: min(470px, 100%); max-height: min(82vh, 760px); overflow: auto; padding: 24px; border: 1px solid #dce8e5; border-radius: 9px; background: #fff; box-shadow: 0 18px 60px #08272c44; animation: arrive .18s ease both; }
 .modal-wide { width: min(920px, 100%); }
 .modal-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding-bottom: 15px; border-bottom: 1px solid #e5edeb; }
-.modal-heading h2 { margin: 2px 0 0; color: #1b3b42; font-family: 'Manrope', sans-serif; font-size: 20px; }
+.modal-heading h2 { margin: 2px 0 0; color: #1b3b42; font-family: 'Atkinson Hyperlegible', Arial, sans-serif; font-size: 32px; line-height: 1.3; }
 .close-button { width: 44px; height: 44px; display: grid; place-items: center; flex: 0 0 auto; border: 0; border-radius: 6px; color: #557174; background: #f1f6f4; }
 .help-content { padding-top: 16px; }
 .help-illustration { width: 54px; height: 54px; display: grid; place-items: center; margin: 0 0 14px; border-radius: 13px; color: #317b7c; background: #e8f3f0; }
@@ -199,8 +199,8 @@ td { padding: 11px 12px; border-top: 1px solid #e9efed; color: #536a6d; white-sp
 .access-mode .text-input, .access-mode .primary-button { min-height: 64px; font-size: 18px; }
 .access-mode .field-label, .access-mode .method-tabs button { font-size: 17px; }
 .access-mode .field-hint { font-size: 15px; }
-.access-mode .info-row, .access-mode .route-step p { font-size: 15px; }
-.access-mode .demo-list small { font-size: 14px; }
+.access-mode .info-row, .access-mode .route-step p { font-size: 18px; }
+.access-mode .demo-list small { font-size: 16px; }
 .access-mode .step-item { min-height: 55px; font-size: 15px; }
 .access-mode .login-panel, .access-mode .workflow-page { max-width: 620px; }
 .text-large .panel-heading p, .text-large .workflow-page > p, .text-large .field-hint, .text-large .info-row, .text-large .route-step p, .text-large .demo-list small { font-size: 18px; }
@@ -299,3 +299,225 @@ td { padding: 11px 12px; border-top: 1px solid #e9efed; color: #536a6d; white-sp
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+.app-shell .study-label,
+.app-shell .rail-content > p,
+.app-shell .rail-note,
+.app-shell .rail-footer,
+.app-shell .step-item,
+.app-shell .workflow-breadcrumbs li,
+.app-shell .panel-heading p,
+.app-shell .workflow-page > p,
+.app-shell .field-label,
+.app-shell .field-hint,
+.app-shell .form-error,
+.app-shell .demo-heading,
+.app-shell .demo-list strong,
+.app-shell .demo-list small,
+.app-shell .info-row,
+.app-shell .time-note,
+.app-shell .back-button,
+.app-shell .quiet-button,
+.app-shell .check-row,
+.app-shell .confirmation-note,
+.app-shell .route-step p,
+.app-shell .directions-note,
+.app-shell .page-footer,
+.app-shell .research-footer-button,
+.app-shell .help-content p,
+.app-shell .help-content ol,
+.app-shell .modal-description,
+.app-shell td {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.app-shell .rail-eyebrow,
+.app-shell .overline,
+.app-shell .card-label { font-size: 15px; }
+.app-shell .step-heading,
+.app-shell .step-number,
+.app-shell th,
+.app-shell .outcome { font-size: 15px; }
+.app-shell .language-select select,
+.app-shell .mode-toggle,
+.app-shell .help-button,
+.app-shell .method-tabs button,
+.app-shell .field-label,
+.app-shell .primary-button { font-size: 19px; }
+.app-shell .text-input { font-size: 20px; }
+.app-shell .text-large .panel-heading p,
+.app-shell .text-large .workflow-page > p,
+.app-shell .text-large .field-hint,
+.app-shell .text-large .info-row,
+.app-shell .text-large .route-step p,
+.app-shell .text-large .demo-list small { font-size: 21px; }
+.app-shell .text-largest .panel-heading h2,
+.app-shell .text-largest .workflow-page h2 { font-size: 42px; }
+.app-shell .text-largest .panel-heading p,
+.app-shell .text-largest .workflow-page > p,
+.app-shell .text-largest .field-hint,
+.app-shell .text-largest .info-row,
+.app-shell .text-largest .route-step p,
+.app-shell .text-largest .demo-list small,
+.app-shell .text-largest .field-label,
+.app-shell .text-largest .method-tabs button,
+.app-shell .text-largest .primary-button { font-size: 24px; }
+.app-shell .study-label,
+.app-shell .rail-content > p,
+.app-shell .rail-note,
+.app-shell .rail-footer,
+.app-shell .step-item,
+.app-shell .workflow-breadcrumbs li,
+.app-shell .panel-heading p,
+.app-shell .workflow-page > p,
+.app-shell .field-label,
+.app-shell .field-hint,
+.app-shell .form-error,
+.app-shell .demo-heading,
+.app-shell .demo-list strong,
+.app-shell .demo-list small,
+.app-shell .info-row,
+.app-shell .time-note,
+.app-shell .back-button,
+.app-shell .quiet-button,
+.app-shell .check-row,
+.app-shell .confirmation-note,
+.app-shell .route-step p,
+.app-shell .directions-note,
+.app-shell .page-footer,
+.app-shell .research-footer-button,
+.app-shell .help-content p,
+.app-shell .help-content ol,
+.app-shell .modal-description,
+.app-shell td { font-size: 20px; line-height: 1.55; }
+.app-shell .rail-eyebrow,
+.app-shell .overline,
+.app-shell .card-label,
+.app-shell .step-heading,
+.app-shell th,
+.app-shell .outcome { font-size: 18px; text-transform: none; }
+.app-shell .language-select select,
+.app-shell .mode-toggle,
+.app-shell .help-button,
+.app-shell .method-tabs button,
+.app-shell .primary-button { font-size: 20px; font-weight: 700; }
+.app-shell .field-label { font-size: 20px; font-weight: 700; }
+.app-shell .panel-heading h2,
+.app-shell .workflow-page h2 { font-size: 36px; line-height: 1.3; }
+.app-shell .modal-heading h2 { font-size: 32px; line-height: 1.3; }
+.app-shell .appointment-top h3,
+.app-shell .directions-heading h3 { font-size: 24px; line-height: 1.35; }
+.app-shell .rail-content h1 { font-size: 36px; line-height: 1.3; }
+.app-shell .demo-avatar { font-size: 16px; }
+.app-shell .display-settings legend { font-size: 22px; line-height: 1.4; }
+.app-shell .size-option,
+.app-shell .contrast-toggle,
+.app-shell .idle-warning p { font-size: 20px; line-height: 1.5; }
+.app-shell .size-option { min-height: 64px; }
+.app-shell .text-large .panel-heading p,
+.app-shell .text-large .workflow-page > p,
+.app-shell .text-large .field-hint,
+.app-shell .text-large .info-row,
+.app-shell .text-large .route-step p,
+.app-shell .text-large .demo-list small { font-size: 24px; }
+.app-shell .text-largest .panel-heading h2,
+.app-shell .text-largest .workflow-page h2 { font-size: 40px; }
+.app-shell .text-largest .panel-heading p,
+.app-shell .text-largest .workflow-page > p,
+.app-shell .text-largest .field-hint,
+.app-shell .text-largest .info-row,
+.app-shell .text-largest .route-step p,
+.app-shell .text-largest .demo-list small,
+.app-shell .text-largest .field-label,
+.app-shell .text-largest .method-tabs button,
+.app-shell .text-largest .primary-button { font-size: 27px; }
+
+:root {
+  color: #2d4234;
+  background: #f5f2e8;
+  --ink: #2d4234;
+  --muted: #536657;
+  --line: #d7ddcf;
+  --teal: #526e52;
+  --deep: #344b39;
+}
+
+.app-shell { background: #f5f2e8; color: #2d4234; }
+.topbar { background: #fffdf8; border-color: #e2e3d9; }
+.brand-mark { background: #526e52; border-radius: 15px 15px 15px 7px; }
+.brand-name span { color: #526e52; }
+.language-select select, .mode-toggle { border-color: #cad5c4; color: #344b39; background: #fffdf8; border-radius: 12px; }
+.mode-toggle[aria-pressed="true"] { border-color: #a9ba9e; background: #e7edde; }
+.help-button { border-radius: 12px; background: #344b39; }
+.help-button:hover, .primary-button:hover { background: #293d2f; }
+.main-layout { background: #fffdf8; }
+.welcome-rail { justify-content: center; gap: 24px; padding: 30px 32px; color: #2d4234; background: #e5eadc; }
+.welcome-rail::before, .welcome-rail::after { content: none; }
+.welcome-photo { width: 100%; max-height: 270px; aspect-ratio: 1.42; overflow: hidden; margin: 0; border: 5px solid #f8f6ee; border-radius: 22px 22px 72px 22px; background: #dce4d3; }
+.welcome-photo img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center 34%; }
+.rail-eyebrow, .overline { color: #536f50; }
+.rail-content h1 { color: #293d2f; }
+.rail-content > p { max-width: 280px; color: #405644; }
+.rail-note { max-width: 290px; margin-top: 20px; padding-top: 16px; border-color: #c4cfbb; color: #405644; }
+.rail-note svg { color: #536f50; }
+.rail-footer { color: #536851; }
+.rail-footer-line { height: 2px; background: #72886b; }
+.workspace { background: #fffdf8; }
+.panel-heading .overline, .workflow-page > .overline { color: #536f50; }
+.panel-heading h2, .workflow-page h2, .modal-heading h2 { color: #2d4234; }
+.panel-heading p, .workflow-page > p { color: #536657; }
+.method-tabs button { border-color: #c9d4c3; border-radius: 14px; color: #405644; background: #fffdf8; }
+.method-tabs button.active { border-color: #526e52; color: #344b39; background: #e7edde; box-shadow: inset 0 0 0 1px #526e52; }
+.field-label { color: #344b39; }
+.text-input { border-color: #bdcbb8; border-radius: 12px; color: #2d4234; background: #fffefa; }
+.text-input:focus { border-color: #526e52; outline-color: #526e5230; }
+.primary-button { border-radius: 14px; background: #486349; }
+.form-error { border-color: #a94c3c; color: #6f2f28; background: #fff0e9; }
+.demo-credentials { border-color: #e2e3d9; }
+.demo-heading { color: #405644; }
+.demo-heading svg, .demo-list button > svg { color: #526e52; }
+.demo-list button { border-color: #d5dece; border-radius: 14px; color: #344b39; background: #fffefa; }
+.demo-list button:hover { border-color: #8da384; background: #f3f5eb; }
+.demo-avatar { color: #344b39; background: #e4ebdc; }
+.avatar-coral { color: #714a35; background: #f1e6d8; }
+.appointment-card, .verify-list, .directions-block { border-color: #d4ddcd; border-radius: 18px 18px 28px 18px; background: #f8f7ef; }
+.appointment-symbol { color: #486349; background: #e7edde; }
+.appointment-top { border-color: #dde3d5; }
+.appointment-top h3, .directions-heading h3 { color: #344b39; }
+.card-label { color: #596b55; text-transform: none; }
+.appointment-time { color: #405644; }
+.info-row { border-color: #e0e5da; }
+.info-row > span { color: #596b5e; }
+.info-row strong { color: #2d4234; }
+.back-button, .quiet-button { border-radius: 12px; color: #405644; }
+.back-button:hover, .quiet-button:hover { background: #edf0e5; }
+.check-row { color: #344b39; }
+.custom-check { border-color: #819278; }
+.check-row.checked .custom-check { border-color: #486349; background: #486349; }
+.confirmation-note { border-radius: 12px; color: #405644; background: #eef1e7; }
+.directions-heading { border-color: #dde3d5; color: #526e52; }
+.route-icon { border-color: #cfdbca; color: #486349; background: #edf1e6; }
+.waiting-icon { border-color: #e6d7c5; color: #785d39; background: #f7f0e5; }
+.route-line { background: #bdcdb4; }
+.directions-note { border-color: #e0e5da; color: #536657 !important; }
+.page-footer { color: #536657; }
+.page-footer svg, .research-footer-button { color: #526e52; }
+.modal-dialog { border-color: #d7ddcf; border-radius: 20px 20px 28px 20px; background: #fffdf8; }
+.modal-heading { border-color: #e2e3d9; }
+.close-button { border-radius: 12px; color: #344b39; background: #edf0e5; }
+.help-illustration { border-radius: 18px 18px 28px 18px; color: #486349; background: #e7edde; }
+.assist-note { color: #344b39 !important; background: #edf1e6; }
+.table-wrap { border-color: #d7ddcf; border-radius: 12px; }
+th { color: #344b39; background: #edf0e5; }
+td { border-color: #e2e6dc; color: #405644; }
+.outcome.success { color: #285a3c; background: #e6f0e4; }
+.outcome.incomplete { color: #724d2d; background: #f5ecdd; }
+.size-option[aria-pressed="true"] { border-color: #526e52; background: #e7edde; }
+.contrast-toggle { border-color: #c9d4c3; border-radius: 12px; color: #344b39; background: #fffdf8; }
+.study-label, .workflow-breadcrumbs li { color: #526552; }
+.breadcrumb-link { color: #3a6040; }
+.breadcrumb-current { color: #2f4533; }
+.text-input::placeholder { color: #5f6e5a; opacity: 1; }
+.success-mark { border-color: #b8c9ae; color: #385b3d; background: #e8edde; }
+.high-contrast .welcome-rail { color: #fff; background: #092e22; }

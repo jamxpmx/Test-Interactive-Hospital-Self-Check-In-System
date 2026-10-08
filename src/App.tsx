@@ -193,8 +193,9 @@ export default function App() {
 
       <main id="main" className="main-layout" aria-label={t('mainContent')}>
         <aside className="welcome-rail">
-          <div className="rail-orbit orbit-one" />
-          <div className="rail-orbit orbit-two" />
+          <figure className="welcome-photo">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1200&q=82" alt="A smiling clinician standing in a sunlit garden" fetchPriority="high" />
+          </figure>
           <div className="rail-content">
             <span className="rail-eyebrow">{t('simulation')}</span>
             <h1>{t('brandLine')}</h1>

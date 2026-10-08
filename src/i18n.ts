@@ -2,7 +2,7 @@ export type Locale = 'en' | 'es'
 
 export const copy = {
   en: {
-    simulation: 'RESEARCH SIMULATION', researchLabel: 'University usability study · Fictional data only', language: 'Language', mode: 'Interface mode',
+    simulation: 'Research simulation', researchLabel: 'University usability study · Fictional data only', language: 'Language', mode: 'Interface mode',
     standard: 'Standard', accessible: 'Easy access', dashboard: 'Research data', help: 'Get help', brandLine: 'A calmer way to check in',
     displaySettings: 'Display settings', textSize: 'Text size', textNormal: 'Regular', textLarge: 'Large', textLargest: 'Extra large', highContrast: 'High contrast', on: 'On', off: 'Off',
     idleTitle: 'Are you still checking in?', idleWarning: 'For privacy, this session will restart in {count} seconds.', stayHere: 'Continue check-in',
@@ -15,7 +15,7 @@ export const copy = {
     demoJordan: 'PC-10482 · DOB 04/17/1988 · Code 381624', demoAvery: 'PC-20937 · DOB 11/02/1975 · Code 725903',
     accessibilityIntro: 'Would you like a little extra support?',
     accessibilityText: 'Easy access mode uses larger text, clearer steps, and more space between controls.', enableAccess: 'Use easy access mode',
-    steps: 'CHECK-IN STEPS', stepWelcome: 'Your visit', stepVerify: 'Review details', stepConfirm: 'Confirm', stepComplete: 'All set', back: 'Back',
+    steps: 'Check-in steps', stepWelcome: 'Your visit', stepVerify: 'Review details', stepConfirm: 'Confirm', stepComplete: 'All set', back: 'Back',
     welcomePatient: 'Hello, {name}', welcomeVisit: 'You have an appointment today. Let’s make sure everything looks right.',
     appointment: 'Appointment', date: 'Date', time: 'Time', department: 'Department', clinician: 'Care team', location: 'Building',
     reviewInfo: 'Review your information', reviewPrompt: 'Please check that the details below match your appointment.',
@@ -41,7 +41,7 @@ export const copy = {
     patientLoginHint: 'Enter the fictional ID and date of birth shown in the demo credentials.', codeHint: 'Your demo confirmation code has six digits.',
   },
   es: {
-    simulation: 'SIMULACIÓN DE INVESTIGACIÓN', researchLabel: 'Estudio universitario de usabilidad · Solo datos ficticios', language: 'Idioma', mode: 'Modo de interfaz',
+    simulation: 'Simulación de investigación', researchLabel: 'Estudio universitario de usabilidad · Solo datos ficticios', language: 'Idioma', mode: 'Modo de interfaz',
     standard: 'Estándar', accessible: 'Accesible', dashboard: 'Datos de investigación', help: 'Obtener ayuda', brandLine: 'Una forma más sencilla de registrarse',
     displaySettings: 'Ajustes de pantalla', textSize: 'Tamaño del texto', textNormal: 'Normal', textLarge: 'Grande', textLargest: 'Muy grande', highContrast: 'Alto contraste', on: 'Activado', off: 'Desactivado',
     idleTitle: '¿Desea continuar?', idleWarning: 'Por privacidad, la sesión se reiniciará en {count} segundos.', stayHere: 'Continuar registro',
@@ -54,7 +54,7 @@ export const copy = {
     demoJordan: 'PC-10482 · Nac. 17/04/1988 · Código 381624', demoAvery: 'PC-20937 · Nac. 02/11/1975 · Código 725903',
     accessibilityIntro: '¿Le gustaría recibir apoyo adicional?',
     accessibilityText: 'El modo accesible usa texto más grande, pasos claros y más espacio entre controles.', enableAccess: 'Usar modo accesible',
-    steps: 'PASOS DEL REGISTRO', stepWelcome: 'Su visita', stepVerify: 'Revisar datos', stepConfirm: 'Confirmar', stepComplete: 'Listo', back: 'Volver',
+    steps: 'Pasos del registro', stepWelcome: 'Su visita', stepVerify: 'Revisar datos', stepConfirm: 'Confirmar', stepComplete: 'Listo', back: 'Volver',
     welcomePatient: 'Hola, {name}', welcomeVisit: 'Tiene una cita hoy. Revisemos que todo esté correcto.',
     appointment: 'Cita', date: 'Fecha', time: 'Hora', department: 'Departamento', clinician: 'Equipo de atención', location: 'Edificio',
     reviewInfo: 'Revise su información', reviewPrompt: 'Compruebe que los siguientes datos coincidan con su cita.',
