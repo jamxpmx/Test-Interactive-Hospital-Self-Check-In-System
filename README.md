@@ -33,7 +33,8 @@ The login screen also has buttons to fill these demo details. All profiles, appo
 ## Study features
 
 - English and Spanish interface copy, including localized dates and page titles.
-- Easy-access mode is on by default; the header toggle switches to standard mode. Both modes share the same check-in workflow.
+- Easy-access mode is on by default; the header toggle switches to standard mode. Display settings also offer regular, large, or extra-large text and high contrast.
+- After three minutes without touch, keyboard, or input activity during a patient session, a 30-second privacy warning appears before the demo patient session is cleared.
 - The workflow covers login, appointment review, patient-detail confirmation, check-in confirmation, and fictional wayfinding.
 - The research dashboard records a random participant ID, interface mode, elapsed seconds, navigation errors, assistance requests, and completion status.
 - Research records are stored in this browser's `localStorage` under `patientconnect.research.v1`, separately from the in-memory demo patient session. Records are written when a task is completed or restarted. Use the dashboard to export CSV or clear records from this device.

@@ -21,8 +21,8 @@ button { cursor: pointer; }
 button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid #e3a85f; outline-offset: 3px; }
 button:disabled { cursor: not-allowed; opacity: .55; }
 
-.app-shell { min-height: 100vh; display: flex; flex-direction: column; background: #f2f6f5; }
-.topbar { min-height: 78px; display: flex; align-items: center; gap: 26px; padding: 0 5.2%; background: #fff; border-bottom: 1px solid #e7eeec; z-index: 2; }
+.app-shell { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; background: #f2f6f5; }
+.topbar { min-height: 82px; display: flex; align-items: center; gap: 22px; padding: 0 3.2%; background: #fff; border-bottom: 1px solid #e7eeec; z-index: 2; }
 .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; flex: 0 0 auto; }
 .brand-mark { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 12px; color: #fff; background: #176e78; }
 .brand-name { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 19px; }
@@ -38,7 +38,7 @@ button:disabled { cursor: not-allowed; opacity: .55; }
 .help-button:hover, .primary-button:hover { background: #0b5360; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
-.main-layout { width: min(1250px, calc(100% - 64px)); min-height: 680px; flex: 1; display: grid; grid-template-columns: 340px minmax(0, 1fr); margin: 42px auto 24px; background: #fff; border: 1px solid #e0e9e7; border-radius: 9px; overflow: hidden; box-shadow: 0 14px 44px #23484b0b; }
+.main-layout { width: 100%; min-height: calc(100svh - 132px); flex: 1; display: grid; grid-template-columns: minmax(280px, 29vw) minmax(0, 1fr); margin: 0; background: #fff; border: 0; border-radius: 0; overflow: visible; box-shadow: none; }
 .welcome-rail { position: relative; isolation: isolate; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 42px 34px 27px; color: #fff; background: linear-gradient(150deg, #164f5b, #123944 72%); }
 .welcome-rail::before { position: absolute; z-index: -1; content: ''; inset: 0; opacity: .14; background-image: linear-gradient(135deg, transparent 49.5%, #a8d5cc 50%, transparent 50.5%), linear-gradient(45deg, transparent 49.5%, #a8d5cc 50%, transparent 50.5%); background-size: 58px 58px; mask-image: linear-gradient(180deg, transparent, #000 35%, #000 72%, transparent); }
 .welcome-rail::after { position: absolute; z-index: -1; right: -68px; bottom: 96px; width: 210px; height: 210px; border: 1px solid #a8d5cc38; content: ''; transform: rotate(45deg); }
@@ -61,7 +61,7 @@ button:disabled { cursor: not-allowed; opacity: .55; }
 .step-item.active .step-number { border-color: #97c9bf; color: var(--deep); background: #a5d4c8; }
 .step-item.done .step-number { border-color: #68b9a2; color: var(--deep); background: #68b9a2; }
 
-.workspace { min-width: 0; display: flex; flex-direction: column; align-items: stretch; justify-content: center; padding: 38px clamp(34px, 7vw, 90px); }
+.workspace { min-width: 0; display: flex; flex-direction: column; align-items: stretch; justify-content: center; padding: 28px clamp(32px, 5vw, 76px); }
 .login-panel, .workflow-page { width: 100%; max-width: 570px; margin: auto; }
 .workflow-breadcrumbs { width: 100%; max-width: 600px; margin: 0 auto 20px; }
 .workflow-breadcrumbs ol { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 8px; margin: 0; padding: 0; list-style: none; }
@@ -203,22 +203,55 @@ td { padding: 11px 12px; border-top: 1px solid #e9efed; color: #536a6d; white-sp
 .access-mode .demo-list small { font-size: 14px; }
 .access-mode .step-item { min-height: 55px; font-size: 15px; }
 .access-mode .login-panel, .access-mode .workflow-page { max-width: 620px; }
+.text-large .panel-heading p, .text-large .workflow-page > p, .text-large .field-hint, .text-large .info-row, .text-large .route-step p, .text-large .demo-list small { font-size: 18px; }
+.text-large .field-label, .text-large .demo-list strong, .text-large .method-tabs button { font-size: 19px; }
+.text-largest .panel-heading h2, .text-largest .workflow-page h2 { font-size: 38px; }
+.text-largest .panel-heading p, .text-largest .workflow-page > p, .text-largest .field-hint, .text-largest .info-row, .text-largest .route-step p, .text-largest .demo-list small { font-size: 21px; }
+.text-largest .field-label, .text-largest .demo-list strong, .text-largest .method-tabs button, .text-largest .primary-button { font-size: 22px; }
+.high-contrast { color: #000; background: #fff; }
+.high-contrast .main-layout, .high-contrast .workspace, .high-contrast .appointment-card, .high-contrast .verify-list, .high-contrast .directions-block { background: #fff; }
+.high-contrast .panel-heading p, .high-contrast .workflow-page > p, .high-contrast .field-hint, .high-contrast .info-row > span, .high-contrast .page-footer, .high-contrast .modal-description { color: #26373a; }
+.high-contrast .text-input, .high-contrast .method-tabs button, .high-contrast .demo-list button, .high-contrast .language-select select, .high-contrast .mode-toggle { border: 2px solid #14292d; color: #000; }
+.high-contrast .primary-button, .high-contrast .help-button { border: 2px solid #000; color: #fff; background: #003f4a; }
+.high-contrast .welcome-rail { background: #092e36; }
+.high-contrast :focus-visible { outline-color: #000; outline-width: 4px; }
+.display-settings fieldset { margin: 0; padding: 0; border: 0; }
+.display-settings legend { margin-bottom: 12px; color: #294a50; font-size: 17px; font-weight: 750; }
+.size-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.size-option { min-height: 58px; padding: 8px; border: 1px solid #bdcdca; border-radius: 6px; color: #294a50; background: #fff; font-size: 15px; font-weight: 700; }
+.size-option[aria-pressed="true"] { border: 2px solid #146d78; background: #edf6f2; }
+.contrast-toggle { width: 100%; min-height: 62px; display: flex; align-items: center; gap: 12px; margin-top: 18px; padding: 0 12px; border: 1px solid #bdcdca; border-radius: 6px; color: #294a50; background: #fff; font-size: 16px; font-weight: 700; text-align: left; }
+.contrast-toggle .toggle-state { margin-left: auto; }
+.idle-warning { display: grid; justify-items: center; gap: 16px; padding-top: 18px; text-align: center; }
+.idle-warning > svg { color: #a35b28; }
+.idle-warning p { margin: 0; color: #294a50; font-size: 18px; line-height: 1.5; }
 
 @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
 @media (max-width: 1120px) {
   .topbar { padding: 0 24px; gap: 16px; }
   .study-label { display: none; }
-  .main-layout { width: min(calc(100% - 40px), 1050px); grid-template-columns: 290px minmax(0, 1fr); margin-top: 28px; }
-  .welcome-rail { padding: 34px 27px 24px; }
-  .workspace { padding: 38px 42px; }
-  .page-footer { width: calc(100% - 40px); }
+  .main-layout { min-height: calc(100svh - 132px); grid-template-columns: 280px minmax(0, 1fr); margin: 0; }
+  .welcome-rail { padding: 30px 26px 24px; }
+  .workspace { padding: 20px clamp(22px, 4vw, 48px); }
+  .page-footer { width: 100%; min-height: 50px; margin: 0; padding: 6px 24px; }
+}
+@media (min-width: 761px) and (max-width: 900px) {
+  .topbar { flex-wrap: wrap; padding: 10px 22px; gap: 8px 16px; }
+  .header-controls { width: 100%; margin-left: 0; justify-content: flex-end; gap: 8px; }
+  .main-layout { display: flex; flex-direction: column; }
+  .welcome-rail { min-height: 190px; padding: 20px 24px; }
+  .rail-content h1 { max-width: none; margin: 8px 0; font-size: 24px; }
+  .rail-content > p { max-width: none; }
+  .rail-note { display: none; }
+  .rail-footer { margin-top: 10px; }
+  .workspace { flex: 1; padding: 20px 48px; }
 }
 @media (max-width: 760px) {
   .topbar { min-height: 68px; padding: 10px 16px; flex-wrap: wrap; gap: 10px; }
   .brand-name { font-size: 17px; }
   .header-controls { width: 100%; margin-left: 0; display: grid; grid-template-columns: minmax(90px, 1fr) minmax(130px, 1.5fr) auto; gap: 8px; }
   .language-select select, .mode-toggle, .help-button { width: 100%; min-height: 46px; }
-  .main-layout { width: calc(100% - 24px); min-height: 0; grid-template-columns: 1fr; margin: 12px auto 16px; border-radius: 7px; }
+  .main-layout { width: 100%; min-height: 0; grid-template-columns: 1fr; margin: 0; }
   .welcome-rail { min-height: 188px; padding: 23px 24px 17px; }
   .rail-content h1 { max-width: 350px; margin: 10px 0 6px; font-size: 23px; }
   .rail-content > p { max-width: 480px; font-size: 12px; }
@@ -232,7 +265,7 @@ td { padding: 11px 12px; border-top: 1px solid #e9efed; color: #536a6d; white-sp
   .workspace { padding: 27px 22px 30px; }
   .panel-heading { margin-bottom: 20px; }
   .panel-heading h2, .workflow-page h2 { font-size: 23px; }
-  .page-footer { width: calc(100% - 28px); margin-bottom: 13px; font-size: 11px; }
+  .page-footer { width: 100%; margin-bottom: 0; padding: 12px 16px; font-size: 11px; }
   .page-footer span:first-child { max-width: 65%; }
   .access-mode .main-layout { grid-template-columns: 1fr; }
   .access-mode .workspace { padding: 27px 22px 30px; }
@@ -243,7 +276,7 @@ td { padding: 11px 12px; border-top: 1px solid #e9efed; color: #536a6d; white-sp
   .brand { gap: 7px; }
   .brand-mark { width: 33px; height: 33px; }
   .brand-name { font-size: 15px; }
-  .main-layout { width: calc(100% - 16px); }
+  .main-layout { width: 100%; }
   .welcome-rail { min-height: 176px; padding: 20px 19px 15px; }
   .workspace { padding: 24px 16px 25px; }
   .access-mode .workspace { padding: 24px 16px 25px; }

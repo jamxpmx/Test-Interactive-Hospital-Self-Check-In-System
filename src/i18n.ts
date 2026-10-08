@@ -4,6 +4,8 @@ export const copy = {
   en: {
     simulation: 'RESEARCH SIMULATION', researchLabel: 'University usability study · Fictional data only', language: 'Language', mode: 'Interface mode',
     standard: 'Standard', accessible: 'Easy access', dashboard: 'Research data', help: 'Get help', brandLine: 'A calmer way to check in',
+    displaySettings: 'Display settings', textSize: 'Text size', textNormal: 'Regular', textLarge: 'Large', textLargest: 'Extra large', highContrast: 'High contrast', on: 'On', off: 'Off',
+    idleTitle: 'Are you still checking in?', idleWarning: 'For privacy, this session will restart in {count} seconds.', stayHere: 'Continue check-in',
     welcomeBack: 'Welcome to your visit', startText: 'Check in for your appointment in just a few steps.',
     fakeData: 'This is a research simulation. Use fictional demo details only.', chooseMethod: 'Choose how to check in',
     patientLogin: 'Patient ID', quickCheckin: 'Quick code', patientIdLabel: 'Fictional patient ID', patientIdPlaceholder: 'For example, PC-10482',
@@ -41,6 +43,8 @@ export const copy = {
   es: {
     simulation: 'SIMULACIÓN DE INVESTIGACIÓN', researchLabel: 'Estudio universitario de usabilidad · Solo datos ficticios', language: 'Idioma', mode: 'Modo de interfaz',
     standard: 'Estándar', accessible: 'Accesible', dashboard: 'Datos de investigación', help: 'Obtener ayuda', brandLine: 'Una forma más sencilla de registrarse',
+    displaySettings: 'Ajustes de pantalla', textSize: 'Tamaño del texto', textNormal: 'Normal', textLarge: 'Grande', textLargest: 'Muy grande', highContrast: 'Alto contraste', on: 'Activado', off: 'Desactivado',
+    idleTitle: '¿Desea continuar?', idleWarning: 'Por privacidad, la sesión se reiniciará en {count} segundos.', stayHere: 'Continuar registro',
     welcomeBack: 'Le damos la bienvenida', startText: 'Regístrese para su cita en unos pocos pasos.',
     fakeData: 'Esta es una simulación de investigación. Use solo datos ficticios de demostración.', chooseMethod: 'Elija cómo registrarse',
     patientLogin: 'ID de paciente', quickCheckin: 'Código rápido', patientIdLabel: 'ID de paciente ficticio', patientIdPlaceholder: 'Por ejemplo, PC-10482',

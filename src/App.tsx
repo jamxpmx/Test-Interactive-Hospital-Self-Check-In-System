@@ -1,19 +1,23 @@
-import { useEffect, useState, type FormEvent, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react'
 import { Link, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import {
-  Accessibility, ArrowLeft, ArrowRight, Check, CheckCircle2, Clock3, Download,
-  HeartPulse, HelpCircle, MapPin, RotateCcw, ShieldCheck, Sparkles, X,
+  Accessibility, ArrowLeft, ArrowRight, Check, CheckCircle2, Clock3, Contrast, Download,
+  HeartPulse, HelpCircle, MapPin, RotateCcw, ShieldCheck, Sparkles, Type, X,
 } from 'lucide-react'
 import { patients, readResearchEntries, RESEARCH_STORAGE_KEY, type Patient, type ResearchEntry } from './data'
 import { copy, type Locale, type TranslationKey } from './i18n'
 
 type Mode = 'standard' | 'accessible'
 type Method = 'patient' | 'quick'
+type TextSize = 'normal' | 'large' | 'largest'
 type Draft = { participantId: string; mode: Mode; startedAt: number; navigationErrors: number; assistanceRequests: number }
 
 export default function App() {
   const [locale, setLocale] = useState<Locale>('en')
   const [mode, setMode] = useState<Mode>('accessible')
+  const [textSize, setTextSize] = useState<TextSize>('normal')
+  const [highContrast, setHighContrast] = useState(false)
+  const [idleCountdown, setIdleCountdown] = useState(30)
   const [method, setMethod] = useState<Method>('patient')
   const [patient, setPatient] = useState<Patient | null>(null)
   const [patientId, setPatientId] = useState('')
@@ -23,7 +27,7 @@ export default function App() {
   const [detailsConfirmed, setDetailsConfirmed] = useState(false)
   const [draft, setDraft] = useState<Draft | null>(null)
   const [entries, setEntries] = useState<ResearchEntry[]>(readResearchEntries)
-  const [modal, setModal] = useState<'help' | 'research' | null>(null)
+  const [modal, setModal] = useState<'help' | 'research' | 'display' | 'inactivity' | null>(null)
   const navigate = useNavigate()
   const location = useLocation()
   const t = (key: TranslationKey, values: Record<string, string | number> = {}) =>
@@ -108,6 +112,40 @@ export default function App() {
     navigate('/')
   }
 
+  const restartRef = useRef(restart)
+  restartRef.current = restart
+
+  useEffect(() => {
+    if (!patient) return
+    let idleTimer = 0
+    const armTimer = () => {
+      window.clearTimeout(idleTimer)
+      if (modal !== 'inactivity') idleTimer = window.setTimeout(() => setModal('inactivity'), 180_000)
+    }
+    const onActivity = () => {
+      if (modal === 'inactivity') setModal(null)
+      armTimer()
+    }
+    const activityEvents = ['pointerdown', 'keydown', 'input', 'touchstart'] as const
+    activityEvents.forEach((eventName) => window.addEventListener(eventName, onActivity, { passive: true }))
+    armTimer()
+    return () => {
+      window.clearTimeout(idleTimer)
+      activityEvents.forEach((eventName) => window.removeEventListener(eventName, onActivity))
+    }
+  }, [patient, modal])
+
+  useEffect(() => {
+    if (modal !== 'inactivity') return
+    setIdleCountdown(30)
+    const countdownTimer = window.setInterval(() => setIdleCountdown((seconds) => Math.max(0, seconds - 1)), 1_000)
+    const resetTimer = window.setTimeout(() => restartRef.current(), 30_000)
+    return () => {
+      window.clearInterval(countdownTimer)
+      window.clearTimeout(resetTimer)
+    }
+  }, [modal])
+
   const finishCheckin = () => {
     saveResult(true)
     navigate('/complete')
@@ -138,7 +176,7 @@ export default function App() {
   const protectedPage = (children: ReactNode) => patient ? children : <Navigate to="/" replace />
 
   return (
-    <div className={`app-shell ${mode === 'accessible' ? 'access-mode' : ''}`}>
+    <div className={`app-shell ${mode === 'accessible' ? 'access-mode' : ''} text-${textSize} ${highContrast ? 'high-contrast' : ''}`}>
       <header className="topbar">
         <Link className="brand" to="/" onClick={(event) => { event.preventDefault(); restart() }} aria-label={t('home')}>
           <span className="brand-mark"><HeartPulse size={22} strokeWidth={2.5} /></span>
@@ -148,6 +186,7 @@ export default function App() {
         <div className="header-controls">
           <label className="language-select"><span className="sr-only">{t('language')}</span><select value={locale} onChange={(event) => setLocale(event.target.value as Locale)}><option value="en">{t('languageEnglish')}</option><option value="es">{t('languageSpanish')}</option></select></label>
           <button className="mode-toggle" onClick={() => changeMode(mode === 'accessible' ? 'standard' : 'accessible')} aria-pressed={mode === 'accessible'} title={mode === 'accessible' ? t('standardMode') : t('accessibleMode')}><Accessibility size={18} /><span>{mode === 'accessible' ? t('accessible') : t('enableAccess')}</span></button>
+          <button className="display-button" onClick={() => setModal('display')}><Type size={18} /><Contrast size={18} /><span>{t('displaySettings')}</span></button>
           <button className="help-button" onClick={requestHelp}><HelpCircle size={19} /><span>{t('help')}</span></button>
         </div>
       </header>
@@ -178,7 +217,7 @@ export default function App() {
           </nav>}
           <Routes>
             <Route path="/" element={<LoginPage t={t} method={method} setMethod={(value) => { setMethod(value); setError('') }} onSubmit={handleLogin} patientId={patientId} setPatientId={setPatientId} dateOfBirth={dateOfBirth} setDateOfBirth={setDateOfBirth} code={code} setCode={setCode} error={error} selectDemo={selectDemo} />} />
-            <Route path="/welcome" element={protectedPage(<WelcomePage t={t} locale={locale} patient={patient} onContinue={() => navigate('/verify')} />)} />
+            <Route path="/welcome" element={protectedPage(<WelcomePage t={t} locale={locale} patient={patient} onBack={restart} onContinue={() => navigate('/verify')} />)} />
             <Route path="/verify" element={protectedPage(<VerifyPage t={t} locale={locale} patient={patient} confirmed={detailsConfirmed} setConfirmed={setDetailsConfirmed} error={error} clearError={() => setError('')} onBack={() => navigate('/welcome')} onContinue={() => {
               if (!detailsConfirmed) { setError('detailsRequired'); setDraft((current) => current ? { ...current, navigationErrors: current.navigationErrors + 1 } : current); return }
               setError(''); navigate('/confirm')
@@ -196,6 +235,17 @@ export default function App() {
         <div className="help-content"><div className="help-illustration"><HelpCircle size={30} /></div><p>{t('helpBody')}</p><ol><li>{t('helpStep1')}</li><li>{t('helpStep2')}</li></ol><p className="assist-note">{t('assistRecorded')}</p>
           <button className="primary-button full-button" onClick={() => setModal(null)}>{t('close')}<Check size={17} /></button>
         </div>
+      </Modal>}
+      {modal === 'display' && <Modal title={t('displaySettings')} onClose={() => setModal(null)} t={t}>
+        <div className="display-settings">
+          <fieldset><legend>{t('textSize')}</legend><div className="size-options">
+            {(['normal', 'large', 'largest'] as const).map((size) => <button key={size} className="size-option" aria-pressed={textSize === size} onClick={() => setTextSize(size)}>{t(size === 'normal' ? 'textNormal' : size === 'large' ? 'textLarge' : 'textLargest')}</button>)}
+          </div></fieldset>
+          <button className="contrast-toggle" aria-pressed={highContrast} onClick={() => setHighContrast((value) => !value)}><Contrast size={20} /><span>{t('highContrast')}</span><span className="toggle-state">{highContrast ? t('on') : t('off')}</span></button>
+        </div>
+      </Modal>}
+      {modal === 'inactivity' && <Modal title={t('idleTitle')} onClose={() => setModal(null)} t={t}>
+        <div className="idle-warning"><Clock3 size={32} /><p>{t('idleWarning', { count: idleCountdown })}</p><button className="primary-button full-button" onClick={() => setModal(null)}>{t('stayHere')}</button><button className="quiet-button full-button" onClick={restart}>{t('restart')}</button></div>
       </Modal>}
       {modal === 'research' && <Modal title={t('researchTitle')} onClose={() => setModal(null)} t={t} wide>
         <p className="modal-description">{t('researchDescription')}</p>
@@ -250,12 +300,12 @@ function LoginPage({ t, method, setMethod, onSubmit, patientId, setPatientId, da
   </div>
 }
 
-function WelcomePage({ t, locale, patient, onContinue }: { t: T; locale: Locale; patient: Patient | null; onContinue: () => void }) {
+function WelcomePage({ t, locale, patient, onBack, onContinue }: { t: T; locale: Locale; patient: Patient | null; onBack: () => void; onContinue: () => void }) {
   if (!patient) return null
   return <div className="workflow-page page-enter">
     <div className="panel-heading"><span className="overline">{t('stepWelcome')}</span><h2>{t('welcomePatient', { name: patient.name.split(' ')[0] })}</h2><p>{t('welcomeVisit')}</p></div>
     <AppointmentCard t={t} locale={locale} patient={patient} />
-    <div className="page-actions"><span className="time-note"><Clock3 size={16} />{t('time')}: {patient.appointmentTime}</span><button className="primary-button" onClick={onContinue}>{t('continue')}<ArrowRight size={18} /></button></div>
+    <div className="page-actions"><button className="back-button" onClick={onBack}><ArrowLeft size={17} />{t('back')}</button><span className="time-note"><Clock3 size={16} />{t('time')}: {patient.appointmentTime}</span><button className="primary-button" onClick={onContinue}>{t('continue')}<ArrowRight size={18} /></button></div>
   </div>
 }
 
